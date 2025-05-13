@@ -12,9 +12,8 @@ boolean aKey, dKey, wKey, sKey;
 float x, y, d;
 float x2, y2, d2;
 boolean a2Key, d2Key, w2Key, s2Key;
-float holex, holey, holed;
-int points1=0;
-int points2=0;
+int player1Points=0;
+int player2Points=0;
 float playerSpeed;
 float player1Size, player2Size;
 import processing.sound.*;
@@ -44,9 +43,6 @@ void setup(){
   y2=height/2+200;
   d=100;
   d2=100;
-  holex=width/2;
-  holey=100;
-  holed=100;
   music.loop();
   music.amp(1);
 }
@@ -120,21 +116,10 @@ void draw(){
       }
 
     }
-    //if(dist(holex, holey, ballx, bally) <=holed/2+balld/2){
-    //  points2+=2;
-    //  ballx=width/2;
-    //  bally=height/2;
-    //  success.play();
-    //}
-    //if(dist(holex, height-holey, ballx, bally) <=holed/2+balld/2){
-    //  points1+=2;
-    //  ballx=width/2;
-    //  bally=height/2;
-    //  success.play();
-    //}
+
     if(bally<=balld/2){
       if(green){
-        points2++;
+        player2Points++;
         ballx=width/2;
         bally=height/2;
         success.play();
@@ -144,7 +129,7 @@ void draw(){
     }
     if(bally>=height-balld/2){
       if(green){
-        points1++;
+        player1Points++;
         ballx=width/2;
         bally=height/2;
         success.play();
@@ -155,8 +140,8 @@ void draw(){
     textSize(40);
     textAlign(CENTER, CENTER);
     fill(255, 0, 0);
-    text(points1, x, y);
-    text(points2, x2, y2);
+    text(player1Points, x, y);
+    text(player2Points, x2, y2);
     
     if (x<d/2) {
       x=d/2;
